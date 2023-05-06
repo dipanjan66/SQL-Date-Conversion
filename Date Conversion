@@ -1,0 +1,147 @@
+-- Date conversion:==>
+
+-- TIMESTAMP:==> 
+
+-- Extract Function:==>
+
+-------------------------------------------------
+
+-- The CONVERT() function converts a value (of any type) into a specified datatype.
+
+--Syntax:-
+
+
+CONVERT(data_type(length), expression, style)
+
+--=================================================
+
+-- Example 01:-
+
+-- Convert an expression from one data type to another (varchar):
+
+SELECT CONVERT(varchar, 25.65);
+
+--=================================================
+
+-- Example 02:-
+
+
+SELECT CONVERT(datetime, '2017-08-25');
+
+--=================================================
+
+-- Example 03:-
+
+SELECT CONVERT(varchar, '2017-08-25', 101);
+
+--=================================================
+
+--- Using the TO_CHAR Function with Dates :
+--SYNTAX :-
+
+TO_CHAR(date, ’format_model’)
+
+
+-- Example:==>
+
+SELECT employee_id, TO_CHAR(hire_date, ’MM/YY’) Month_Hired
+FROM employees
+WHERE last_name = ’Higgins’
+
+
+-- OUTPUT:==>
+
+EMPLOYEE_ID	       MONTH_HIRED
+205	               06/94
+
+--===============================================================
+
+-- TIMESTAMP:==>
+
+
+TIME - format  ==> HH:MM:SS
+
+DATE - format  ==> YYYY-MM-DD
+
+YEAR - format  ==> YYYY  OR  YY
+
+TIMESTAMP - format  ==> YYYY-MM-DD HH:MM:SS
+
+TIMESTAMPTZ - contain ==>  Date, Time and Time Zone
+
+---------------------------------------------------------------
+
+-- TIMESTAMP Function or Operator:==>
+
+
+SHOW TIMEZONE
+
+SELECT NOW()   -- for Date, Time, Timezone
+
+SELECT TIMEOFDAY()   -- for Date, Month, Time, Year
+
+SELECT CURRENT_TIME   -- Current time
+
+SELECT CURRENT_DATE    -- Current Date
+
+--=================================================================
+
+-- Extract Function:--
+
+-- Syntax:==>
+
+SELECT EXTRACT (MONTH from Date_field) from Table
+
+
+-- You can Extract:===>
+
+MONTH
+YEAR
+QUARTER
+WEEK
+DAY 
+HOUR 
+MINUTE
+DOW --  Day of week
+DOY --  Day of Year
+
+-------------------------------------------
+
+-- Practical:-
+
+-- Extract Month:-
+
+select EXTRACT(Month from payment_date) AS payment_month, payment_date
+from payment
+
+
+-- Extract Year:-
+
+select EXTRACT(YEAR from payment_date) AS payment_year, payment_date
+from payment
+
+
+
+-- Extract Day:--
+
+select EXTRACT(DAY from payment_date) AS payment_day, payment_date
+from payment
+
+
+-- Day of Week (DOW):--
+
+select EXTRACT(DOW from payment_date) AS payment_dow, payment_date
+from payment
+
+
+-- Extract Hour:--
+
+select EXTRACT(HOUR from payment_date) AS payment_hour, payment_date
+from payment
+
+
+-- Extract Quarter:--
+
+select EXTRACT(QUARTER from payment_date) AS payment_quarter, payment_date
+from payment
+
